@@ -16,6 +16,7 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
+import {JitsiMeeting} from '@jitsi/react-native-sdk';
 
 import {
   Colors,
@@ -76,20 +77,24 @@ function App(): React.JSX.Element {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
+          <JitsiMeeting
+            config={{
+              hideConferenceTimer: true,
+              subject: 'React Native SDK',
+              customToolbarButtons: [
+                {
+                  icon: 'https://w7.pngwing.com/pngs/987/537/png-transparent-download-downloading-save-basic-user-interface-icon-thumbnail.png',
+                  id: 'btn1',
+                  text: 'Button one',
+                },
+                {
+                  icon: 'https://w7.pngwing.com/pngs/987/537/png-transparent-download-downloading-save-basic-user-interface-icon-thumbnail.png',
+                  id: 'btn2',
+                  text: 'Button two',
+                },
+              ],
+            }}
+          />
         </View>
       </ScrollView>
     </SafeAreaView>
